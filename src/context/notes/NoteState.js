@@ -25,7 +25,7 @@ const notesInitial = [
     
   }
   const addNote = async (title, description, tag) => {
-    // TODO: API Call
+    //Remember the restrictions set while adding note
     // API Call 
     const response = await fetch(`${host}/api/notes/addnote`, {
       method: 'POST',
@@ -35,7 +35,8 @@ const notesInitial = [
       },
       body: JSON.stringify({title, description, tag})
     });
-     
+    const json = await response.json(); 
+    console.log(json);
 
     console.log("Adding a new note")
     const note = {
