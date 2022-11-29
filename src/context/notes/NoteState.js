@@ -20,7 +20,6 @@ const notesInitial = [
       }
     });
     const json = await response.json(); 
-    console.log(json);
     setNotes(json);
     
   }
@@ -35,19 +34,7 @@ const notesInitial = [
       },
       body: JSON.stringify({title, description, tag})
     });
-    const json = await response.json(); 
-    console.log(json);
-
-    console.log("Adding a new note")
-    const note = {
-      "_id": "63845be82ef9fac898de3a889",
-      "user": "638378e23240bee6961686bf",
-      "title": title,
-      "description": description,
-      "tag": tag,
-      "date": "2022-11-28T06:57:44.298Z",
-      "__v": 0
-    }
+    const note = await response.json(); 
     setNotes(notes.concat(note))
   }
   
@@ -62,11 +49,10 @@ const notesInitial = [
       }
     });
     const json = await response.json(); 
-    console.log(json);
+   
 
 
-    //Delete a note
-    console.log("deleting the note with id"+ id);
+    //Delete a note;
     const newsNotes = notes.filter((note)=>{
       return note._id !== id;
     })
@@ -87,7 +73,7 @@ const notesInitial = [
       body: JSON.stringify({title, description, tag})  
     });
     const json = await response.json(); 
-    console.log(json);
+   
 
     let newNotes = JSON.parse(JSON.stringify(notes));
     //logic to edit in client 
