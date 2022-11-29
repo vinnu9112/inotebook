@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {useNavigate} from 'react-router-dom';
-const Login = (props) => {
+const Login = () => {
     let navigate = useNavigate();
 
     const [credentials, setCredentials] = useState({ email: "", password: "" });
