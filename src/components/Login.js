@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {useNavigate} from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 const Login = (props) => {
     let navigate = useNavigate();
 
@@ -16,12 +16,12 @@ const Login = (props) => {
         });
         const json = await response.json();
         console.log(json);
-        if(json.success){
+        if (json.success) {
             localStorage.setItem('token', json.authtoken);
             props.showAlert('Logged In Successfully', "success");
             navigate("/");
         }
-        else{
+        else {
             props.showAlert('Inavlid Credentials', 'danger');
         }
     }
@@ -30,7 +30,7 @@ const Login = (props) => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value })
     }
     return (
-        <div>
+        <>
             <h2 className="my-3">Login to Continue with iNotebook</h2>
             <form onSubmit={handleSubmit}>
                 <div className="my-3">
@@ -43,9 +43,16 @@ const Login = (props) => {
                     <input type="password" className="form-control" value={credentials.password} onChange={onChange} name="password" id="password" />
                 </div>
 
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <button type="submit" className="btn btn-primary">Login</button>
             </form>
-        </div>
+            <div className="card my-4">
+                <div className="card-body">
+                    <h5 className="card-title my-2">Don't have an account?</h5>
+                   
+                    <Link to="/signup" className="btn btn-primary my-2">Click Here</Link>
+                </div>
+            </div>
+        </>
     )
 }
 
