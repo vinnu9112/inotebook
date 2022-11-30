@@ -8,6 +8,7 @@ const Noteitem = (props) => {
 
     const handleClick = ()=>{
         deleteNote(note._id);
+        props.showAlert("Note Deleted Succesfully", "success");
     }
     return (
         <div className="col-md-3">

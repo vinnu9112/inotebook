@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import {useNavigate} from 'react-router-dom';
-const SignUp = () => {
+const SignUp = (props) => {
     let navigate = useNavigate();
 
     const [credentials, setCredentials] = useState({ name: "", email: "", password: "", cpassword:"" });
 
-    const {name,email, password} = credentials;
+    // const {name,email, password} = credentials;
     const handleSubmit = async (e) => {
         e.preventDefault();
         const response = await fetch(`http://localhost:5000/api/auth/createuser`, {
@@ -20,9 +20,10 @@ const SignUp = () => {
         if(json.success){
             localStorage.setItem('token', json.authtoken);
             navigate("/");
+            props.showAlert('Account Created Successfully', "success");
         }
         else{
-            alert('User Already Exists')
+            props.showAlert('Invalid credentials', "danger");
         }
     }
 
