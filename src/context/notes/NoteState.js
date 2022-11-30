@@ -15,7 +15,7 @@ const notesInitial = [
       method: 'GET', 
       headers: {
         'Content-Type': 'application/json',
-        'auth-token' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjM4Mzc4ZTIzMjQwYmVlNjk2MTY4NmJmIn0sImlhdCI6MTY2OTYxNTE1MX0.fSVRFEDKFVKbdbryBZqcxcwpTuXR4igrMKUwvSKdG7Y'
+        'auth-token' : localStorage.getItem('token')
         // 'Content-Type': 'application/x-www-form-urlencoded',
       }
     });
@@ -30,7 +30,7 @@ const notesInitial = [
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjM4Mzc4ZTIzMjQwYmVlNjk2MTY4NmJmIn0sImlhdCI6MTY2OTYxNTE1MX0.fSVRFEDKFVKbdbryBZqcxcwpTuXR4igrMKUwvSKdG7Y"
+        "auth-token": localStorage.getItem('token')
       },
       body: JSON.stringify({title, description, tag})
     });
@@ -44,12 +44,12 @@ const notesInitial = [
       method: 'DELETE', // *GET, POST, PUT, DELETE, etc.
       headers: {
         'Content-Type': 'application/json',
-        'auth-token' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjM4Mzc4ZTIzMjQwYmVlNjk2MTY4NmJmIn0sImlhdCI6MTY2OTYxNTE1MX0.fSVRFEDKFVKbdbryBZqcxcwpTuXR4igrMKUwvSKdG7Y'
+        'auth-token' : localStorage.getItem('token')
         // 'Content-Type': 'application/x-www-form-urlencoded',
       }
     });
     const json = await response.json(); 
-   
+    console.log(json)
 
 
     //Delete a note;
@@ -67,13 +67,13 @@ const notesInitial = [
       method: 'PUT', // *GET, POST, PUT, DELETE, etc.
       headers: {
         'Content-Type': 'application/json',
-        'auth-token' : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjM4Mzc4ZTIzMjQwYmVlNjk2MTY4NmJmIn0sImlhdCI6MTY2OTYxNTE1MX0.fSVRFEDKFVKbdbryBZqcxcwpTuXR4igrMKUwvSKdG7Y'
+        'auth-token' : localStorage.getItem('token')
         // 'Content-Type': 'application/x-www-form-urlencoded',
       },
       body: JSON.stringify({title, description, tag})  
     });
     const json = await response.json(); 
-   
+    console.log(json)
 
     let newNotes = JSON.parse(JSON.stringify(notes));
     //logic to edit in client 
