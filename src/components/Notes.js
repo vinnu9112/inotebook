@@ -14,7 +14,6 @@ const Notes = (props) => {
             getNotes()
         }
         else{
-            props.showAlert("Login or Sign Up to access the iNotebook", "danger")
             navigate("/login");
         }
         // eslint-disable-next-line
