@@ -6,9 +6,25 @@ const NoteState = (props)=>{
 const notesInitial = [
    
   ]
+  const userInitial = []
 
   const [notes, setNotes] = useState(notesInitial);
+  const [user, setUser] = useState(userInitial);
   
+  const getUser = async ()=>{
+    //API call
+    const response = await fetch(`${host}/api/auth/getuser`, {
+      method: 'GET', 
+      headers: {
+        'Content-Type': 'application/json',
+        'auth-token' : localStorage.getItem('token')
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      }
+    });
+    const json = await response.json(); 
+    setUser(json);
+    
+  }
   const getNotes = async ()=>{
     //API call
     const response = await fetch(`${host}/api/notes/fetchallnotes`, {
@@ -90,7 +106,7 @@ const notesInitial = [
   }
   
     return(
-        <NoteContext.Provider value = {{notes, addNote, deleteNote, editNote, getNotes}}>
+        <NoteContext.Provider value = {{notes, user, addNote, deleteNote, editNote, getNotes, getUser}}>
             {props.children}
         </NoteContext.Provider>
     )

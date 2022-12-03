@@ -7,6 +7,9 @@ const Navbar = () => {
       localStorage.removeItem('token');
       navigate("/login")
     }
+    const handleUser = () =>{
+      navigate("/aboutme")
+    }
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -28,7 +31,11 @@ const Navbar = () => {
       {!localStorage.getItem('token')? <form className="d-flex">
       <Link className="btn btn-primary mx-1" to="/login" role="button">Login</Link>
       <Link className="btn btn-primary mx-1" to="/signup" role="button">Sign Up</Link>
-      </form> : <button className="btn btn-primary" onClick={handleClick}>Log Out</button>}
+      </form> : 
+      <> 
+      <button className="btn btn-primary mx-1" onClick={handleUser}>About Me</button>
+      <button className="btn btn-primary mx-1" onClick={handleClick}>Log Out</button>
+      </>}
     </div>
   </div>
 </nav>

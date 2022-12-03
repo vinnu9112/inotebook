@@ -11,6 +11,7 @@ import Home from './components/Home';
 import Alert from './components/Alert';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
+import AboutMe from './components/AboutMe';
 import { useState } from 'react';
 
 function App() {
@@ -36,6 +37,8 @@ function App() {
             <div className="container my-2">
           <Routes>
             <Route exact path="/about" element={<About/>}></Route>
+
+            <Route exact path="/aboutme" element={<AboutMe/>}></Route>
 
             <Route exact path="/" element={<Home showAlert={showAlert}/>}></Route>
 
