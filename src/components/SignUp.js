@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {useNavigate} from 'react-router-dom';
+import {useNavigate, Link} from 'react-router-dom';
 const SignUp = (props) => {
     let navigate = useNavigate();
 
@@ -53,6 +53,13 @@ const SignUp = (props) => {
 
                 <button type="submit" className="btn btn-primary">Get Started</button>
             </form>
+            <div className="card my-4">
+                <div className="card-body">
+                    <h5 className="card-title my-2">Already an user?</h5>
+                   
+                    <Link to="/login" className="btn btn-outline-primary my-2">Click Here</Link>
+                </div>
+            </div>
         </div>
     )
 }

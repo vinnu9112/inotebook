@@ -49,7 +49,7 @@ const Login = (props) => {
                 <div className="card-body">
                     <h5 className="card-title my-2">Don't have an account?</h5>
                    
-                    <Link to="/signup" className="btn btn-primary my-2">Click Here</Link>
+                    <Link to="/signup" className="btn btn-outline-primary my-2">Click Here</Link>
                 </div>
             </div>
         </>
